@@ -19,7 +19,7 @@ namespace ProjetStudeal_Final.Controllers
 
         public IActionResult Index()
         {
-            return View("Dashboard");
+            return View();
         }
 
         public IActionResult Dashboard()
