@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ProjectLayout.Models.Tutoring>
+@{
+    ViewData["Title"] = "AjoutDisponible";
+    Layout = "~/Views/Shared/_LayoutTutor.cshtml";
+}
+
+<div class="ajout">
+    <h2>Ajouter une disponibilite</h2>
+
+    @using (Html.BeginForm("TraitementDisponible", "Membre", FormMethod.Post))
+    {
+        <p>
+            <labl for="idJour">Jour de la disponibilite: </labl>
+            <input type="text" id="idJour" name="Jour" />
+        </p>
+        <p>
+            <labl for="idHeureDebut">Heure de debut: </labl>
+            <input type="text" id="idHeureDebut" name="HeureDebut" />
+        </p>
+        <p>
+            <labl for="idHeureFin">Heure fin disponibilite: </labl>
+            <input type="text" id="idHeureFin" name="HeureFin" />
+        </p>
+        <p>
+            <labl for="idCours">Selectionner un cour</labl>
+            <select id="idCour"  Onclick="AjouterCour();">
+                <option value="0">selectionner un cour</option>
+                @foreach (var c in Model)
+                {
+                    <option value="@c.TutoringId">@c.Subject</option>
+
+                }
+            </select>
+        </p>
+        <p>
+            <input type="hidden"  id="idCourID" name="TutoringID" value="0"/>
+        </p>
+
+        <p>
+            <input type="submit" value="Ajouter la disponibilite"  />
+            <input type="button" value="Annuler" />
+        </p>
+
+    }
+    <p class="ErrorMessage">@ViewBag.Message </p>
+</div>
+
+

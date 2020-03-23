@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "AjoutCour";
+    Layout = "~/Views/Shared/_LayoutTutor.cshtml";
+}
+
+<div class="ajout">
+    <h2>Ajouter un cour</h2>
+
+    @using (Html.BeginForm("TraitementAjoutCour", "Membre", FormMethod.Post))
+    {
+        <p>
+            <labl for="idSujet">Sujet: </labl>
+            <input type="text" id="idSujet" name="Sujet" />
+        </p>
+        
+        <p>
+            <input type="submit" value="Ajouter le cour" />
+            <input type="button" value="Annuler" />
+        </p>
+
+    }
+    <p class="ErrorMessage">  @ViewBag.Message  </p>
+</div>
+

@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Inscription";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="ajout">
+    <h2>Inscription</h2>
+    
+    @using (Html.BeginForm("TraitementInscription", "home", FormMethod.Post))
+    {
+        <p>
+            <labl for="idFirstName">Prenom: </labl>
+            <input type="text" id="idFirstName" name="LastName" />
+        </p>
+        <p>
+            <labl for="idLastName">Nom: </labl>
+            <input type="text" id="idLastName" name="FirstName" />
+        </p>
+        <p>
+            <labl for="idUserName">UserName: </labl>
+            <input type="text" id="idUserName" name="UserName" />
+        </p>
+        <p>
+            <labl for="idIsTotor">Etes vous un tuteur?</labl>
+            <input type="radio" name="IsTotor" value="1" checked="checked" />
+            Oui
+            <input type="radio" name="IsTotor" value="0" />
+            Non
+        </p>
+        <p>
+            <labl for="idPass">Mot de passe: </labl>
+            <input type="password" id="idPass" name="Pass" />
+        </p>
+        <p>
+            <labl for="idConfirmPass">Cofirmer le Mot de passe: </labl>
+            <input type="password" id="idConfirmPass" name="ConfirmPass" />
+        </p>
+        <p>
+            <input type="submit" value="Connecter" />
+            <input type="button" value="Annuler" />
+        </p>
+
+    }
+        <p class="ErrorMessage">  @ViewBag.Message  </p>
+</div>
+
+
+
+
