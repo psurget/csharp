@@ -1,0 +1,20 @@
+﻿use db_cgodin
+go
+
+CREATE PROCEDURE sp_get_all_customers
+AS
+BEGIN
+	SELECT * 
+	FROM tbl_customers 
+END
+
+CREATE PROCEDURE sp_get_new_customers
+AS
+BEGIN
+	DECLARE @currentDate as date
+	SET @currentDate = GETDATE()
+
+	SELECT * 
+	FROM tbl_customers c
+	WHERE (SELECT DATEDIFF(day,  c.CreationDate, @currentDate)) <= 365 
+END
